@@ -1,13 +1,18 @@
 # レガシーフロントエンド安全改善ガイド サンプルコード
 
+## 学習用リポジトリ
+
+-   書籍のサンプルコードを元にレガシー環境を安全に改善する方法を学習する。
+-   [https://github.com/mugi-uno/anzen-kaizen-guide/](https://github.com/mugi-uno/anzen-kaizen-guide/)
+
 書籍「レガシーフロントエンド安全改善ガイド」内の「実践編」で利用するサンプルコードリポジトリです。
 
 ## ブランチの意味
 
 本リポジトリのブランチは次のように対応しています。
 
-- [`master`](https://github.com/mugi-uno/anzen-kaizen-guide) : 改善前のレガシーコード
-- [`after`](https://github.com/mugi-uno/anzen-kaizen-guide/tree/after) : 改善後のコード
+-   [`master`](https://github.com/mugi-uno/anzen-kaizen-guide) : 改善前のレガシーコード
+-   [`after`](https://github.com/mugi-uno/anzen-kaizen-guide/tree/after) : 改善後のコード
 
 `after` ブランチのコミットログが章毎の実践編の対応後コードと対応しています。  
 https://github.com/mugi-uno/anzen-kaizen-guide/commits/after
@@ -29,7 +34,7 @@ npm uninstall puppeteer
 
 ### 2. サンプルコードでの該当ライブラリのバージョンを確認
 
-サンプルコード上のpackage.jsonの内容を確認  
+サンプルコード上の package.json の内容を確認  
 https://github.com/mugi-uno/anzen-kaizen-guide/blob/after/package.json
 
 ```
