@@ -1,0 +1,24 @@
+{
+    "extends": ["airbnb-base"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".ts"]
+            }
+        }
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "import/prefer-default-export": "off"
+    },
+    "globals": {
+        "$": false,
+        "describe": false,
+        "beforeEach": false,
+        "expect": false,
+        "it": false,
+        "page": false
+    }
+}
