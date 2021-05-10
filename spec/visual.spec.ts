@@ -4,18 +4,41 @@ import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 
 // しきい値の設定
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
-    failureThreshold: 0.05,
+    failureThreshold: 0.01,
     failureThresholdType: 'percent',
 });
 expect.extend({ toMatchImageSnapshot });
 
-describe('ビジュアルテスト', () => {
+describe('TODOアプリ', () => {
     beforeEach(async () => {
         await page.goto(`file://${path.resolve(__dirname, '../index.html')}`);
     });
 
-    it('HTML/CSSを含めた見た目が正しい', async () => {
-        await page.waitForSelector('#title', { visible: true });
+    it('初期表示', async () => {
+        expect(await page.screenshot()).toMatchImageSnapshot();
+    });
+
+    it('タスクの追加', async () => {
+        await page.click('#addTodo');
+        await page.click('#addTodo');
+        expect(await page.screenshot()).toMatchImageSnapshot();
+    });
+
+    it('タスクの入力', async () => {
+        await page.click('#addTodo');
+        await page.click('#addTodo');
+        await page.type('.todo:nth-child(1) input', 'サンプルタスク1');
+        await page.type('.todo:nth-child(2) input', 'サンプルタスク2');
+        expect(await page.screenshot()).toMatchImageSnapshot();
+    });
+
+    it('タスクの削除', async () => {
+        await page.click('#addTodo');
+        await page.click('#addTodo');
+        await page.type('.todo:nth-child(1) input', 'サンプルタスク1');
+        await page.type('.todo:nth-child(2) input', 'サンプルタスク2');
+        await page.click('.todo:nth-child(1) .delete');
+        await page.click('.todo:nth-child(1) .delete');
         expect(await page.screenshot()).toMatchImageSnapshot();
     });
 });
