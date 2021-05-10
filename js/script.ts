@@ -1,38 +1,14 @@
+/* eslint-disable import/extensions */
+import './mount';
 import $ from 'jquery';
-// eslint-disable-next-line import/extensions
-import { readData } from './reader';
-import {
-    writeNextTodo,
-    writeTodoCount,
-    toggleTodoList,
-    toggleTodoEmpty,
-    removeTodo,
-    addTodo,
-} from './writer';
-
-function updateAll() {
-    const { count, nextTodoText } = readData();
-
-    writeNextTodo(nextTodoText);
-    writeTodoCount(count);
-    toggleTodoList(count);
-    toggleTodoEmpty(count);
-}
+import { mutations } from './Store';
 
 $(() => {
     $('#addTodo').on('click', () => {
-        addTodo();
-        updateAll();
-    });
-
-    $('#todoList').on('input', '.todo:eq(0)', () => {
-        updateAll();
+        mutations.addTodo();
     });
 
     $('#todoList').on('click', '.delete', function () {
-        removeTodo(this);
-        updateAll();
+        mutations.removeTodo($('#todoList').find('.delete').index(this));
     });
-
-    updateAll();
 });
